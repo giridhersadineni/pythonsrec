@@ -17,19 +17,19 @@ The term programming paradigm is the style or way of thinking about and approach
 Imperative programming is the style of programming in which there is a sequence of statements that change the state of the program. First you must understand what is state. The example of state I use involves a switch. The switch can have two states. It can either be on, or it can either be off. In a program, state are values that have an identity. Here’s an 
 
 ```
-example:
-var total = 0;
-var a = 1;
-var b = 5;
+example:Python 2 Script
+total = 0;
+a = 1;
+b = 5;
 total = a + b
 print total;
 ```
 
 In the above example, the program adds to variables together and assigns them to the total variable. The state of the total variable changed from 0 in the beginning of the program, to 6 before the print function.
 
-Imperative programming says how to do something. An example my teacher used was the process of baking a cake. The program says how to do something in the correct sequence it should be done, therefore order of execution (the order in which each statement is executed) is important. Obviously you cannot add candles if you didn’t bake the cake right?
+Imperative programming says how to do something. An example my teacher used the process of baking a cake. The program says how to do something in the correct sequence it should be done, therefore order of execution (the order in which each statement is executed) is important. Obviously you cannot add candles if you didn’t bake the cake right?
 
-Some examples of imperative programming languages are: Algol and Pascal.
+### Some examples of imperative programming languages are: Algol and Pascal.
 
 # Functional Paradigm
 The Functional programming paradigm is mainly used to perform mathematical functions without changing the state. This paradigm can contain concepts like: pure functions, higher order functions and recursion(functions that call itself). It is best used for performing operations on data that is fixed. Basically where there is few things and more operations to be done.
