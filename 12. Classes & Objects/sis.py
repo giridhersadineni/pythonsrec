@@ -6,7 +6,7 @@ class student:
     fathername=""
     rollno=0
     marks=[]
-    total=0
+    __total=0
     average=0
 
     def __init__(self,rollno,name):
@@ -32,6 +32,8 @@ class student:
         print("Roll No",self.rollno)
         print("Name:",self.name,"Father Name:",self.fathername)
         print("Marks: ",self.marks)
+        print("Total",self.total)
+
     
     def storetodb():
         pass
@@ -47,5 +49,6 @@ while  True:
         s.display()
     elif choice==3:
         s.storetodb()
+
     else:
         print("Invalid Choice")

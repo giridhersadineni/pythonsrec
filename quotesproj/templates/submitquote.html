@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+   
+<body class="bg-dark">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-12 mx-auto p-4    ">
+                    <div class="card">
+                            <div class="card-header">
+                                <h4>Submit a Quote</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="/storequote" method="post">
+                                <div class="form-group">
+                                    <label for="author">Enter Author Name</label>
+                                    <input type="text" class="form-control" name="author">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quote">Enter Quote</label>
+                                    <textarea name="quote" id="" cols="30" rows="10" class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Keywords">Enter Keywords</label>
+                                    <input type="text" class="form-control" name="keywords">
+                                </div>
+                                
+                                <input type="submit"  class="btn btn-success" value="Submit Quote">
+                                <input type="reset" class="btn btn-danger" value="Cancel">
+                                </form>
+                            </div>
+                        </div>
+            </div>
+           
+
+        </div>
+    </div>
+
+
+</body>
+</html>
