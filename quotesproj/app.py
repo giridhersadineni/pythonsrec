@@ -1,4 +1,4 @@
-from flask import Flask, escape, request,render_template
+from flask import Flask, escape, request,redirect, render_template
 import mysql.connector
 app = Flask(__name__)
 
@@ -59,11 +59,44 @@ def quotes():
 
 @app.route('/quotes/create')
 def createquote():
+    
     return render_template("quotes/create.html")
 
-@app.route('/quotes/view')
-def viewquote():
-    return render_template("quotes/view.html")
+
+
+@app.route('/quotes/view/<quoteid>')
+def viewquote(quoteid):
+    try:
+        cnx=mysql.connector.connect(user="root",host="localhost",password="skillverse",database="quotes")
+        cur=cnx.cursor()
+        query="select * from quote where ID="+quoteid
+        cur.execute(query)
+        quote=cur.fetchone()
+        print(quote)
+        cur.close()
+        cnx.commit()
+    except mysql.connector.Error as e:
+        print(e)
+
+    return render_template("quotes/view.html",quote=quote)
+
+
+@app.route('/quotes/<quoteid>/edit')
+def editquote(quoteid):
+    try:
+        cnx=mysql.connector.connect(user="root",host="localhost",password="skillverse",database="quotes")
+        cur=cnx.cursor()
+        query="select * from quote where ID="+quoteid
+        cur.execute(query)
+        quote=cur.fetchone()
+        print(quote)
+        cur.close()
+        cnx.commit()
+    except mysql.connector.Error as e:
+        print(e)
+
+    return render_template("quotes/edit.html",quote=quote)
+
 
 @app.route('/storequote',methods=['POST'])
 def storequote():
@@ -83,6 +116,29 @@ def storequote():
 
     return render_template('quotes/index.html')
 
+@app.route('/quotes/updatequote',methods=['post'])
+def updatequote():
+    quote=request.form.get('quote')
+    author=request.form.get('author')
+    category=request.form.get('category')
+    keyword=request.form.get('keyword')
+    quoteid=request.form.get('quoteid')
+    try:
+        cnx=mysql.connector.connect(user="root",host="localhost",password="skillverse",database="quotes")
+        cur=cnx.cursor()
+        query="update quote set quote='"+quote+"', author='"+author+"', category="+category+", keyword='"+keyword+"' where id="+quoteid
+        print(query)
+        cur.execute(query)
+        cur.close()
+        cnx.commit()
+    except mysql.connector.Error as e:
+        print(e)
+
+
+
+    return redirect('/quotes')
+
+
 
 #keywords routes
 @app.route('/keywords')
@@ -101,7 +157,7 @@ def storekeyword():
     try:
         cnx=mysql.connector.connect(user="root",host="localhost",password="skillverse",database="quotes")
         cur=cnx.cursor()
-        query="insert into keywords(keyword,category) values('"+keyword+"','"+category+"')"
+        query="insert into keywords(keyword) values('"+keyword+"')"
         cur.execute(query)
         cur.close()
         cnx.commit()
