@@ -4,8 +4,11 @@ print("enter six subject marks")
 marks=[]
 sum=0
 for i in range(6):
-    marks.insert(i,int(input("Enter Marks:")))
+    marks.append(int(input("Enter Marks:")))
+    # marks.insert(i,int(input("Enter Marks:")))
     sum=sum+marks[i]
+
+marks.append
 print("Total:",sum)
 print("Average",sum/6)
 marks.sort()

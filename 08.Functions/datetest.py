@@ -1,0 +1,2 @@
+import mydatetime 
+mydatetime.time()

@@ -1,11 +1,13 @@
 filename=input("enter the name of the file")
-f=open(filename,"w")
-line=0
-print("enter the content of the file")
-while line<10:
-    #f.write(input(line))
-    #f.write("\n")
-    print("Hello This is written using print Function",file=f)
-    line=line+1
-
-f.close()
+filewriter=open(filename,"w")
+mydata='''
+This is a 
+sample text 
+written from
+variable
+'''
+content=( input ( " enter the content of the file " ) )
+filewriter.write(content)
+filewriter.write("\n")
+filewriter.write(mydata)
+filewriter.close()
