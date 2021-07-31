@@ -8,3 +8,6 @@ def sqaure(n):
 
 def cube(n):
     return n*n*n
+
+
+PI=22/7

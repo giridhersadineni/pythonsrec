@@ -1,9 +1,8 @@
 a=int(input("Enter a Number"))
 b=int(input("Enter another Number"))
-
-
-
-if :
-    print(a,"is big")
+if a>b: 
+    print(a,"is the greatest number")
 else:
-    print(b,"is big")
+    print(b,"is the greatest number")
+
+

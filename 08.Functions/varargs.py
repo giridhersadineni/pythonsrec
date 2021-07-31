@@ -1,6 +1,6 @@
 #variable length arguments
 
-def add(a,b,*a tuple):
+def add(a,b,*argtuple):
     sum=a+b
     for val in argtuple:
         sum=sum+val
